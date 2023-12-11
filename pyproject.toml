@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "VRT"
+description = "VRT is a library for integrating Visual Regression Tracker with Robot Framework."
+version = "0.1.2"
+authors = ["Katarzyna Wawrzynek <katarzyna.wawrzynek@niceproject.eu>"]
+packages = [
+    { include = "VRT" },
+]
+
+[tool.poetry.dependencies]
+python = ">=3.8"
+robotframework = ">=4.0"
+visual-regression-tracker = ">=4.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

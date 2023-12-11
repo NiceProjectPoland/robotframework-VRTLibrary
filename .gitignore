@@ -1,0 +1,14 @@
+venv/**
+test_results
+.idea
+poetry.lock
+quality_report.txt
+*.html
+*.xml
+example.robot
+dist/**
+*.pyc
+.pytest_cache
+.vscode
+__pycache__
+test.db
