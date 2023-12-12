@@ -10,7 +10,7 @@ For information about Visual Regression Tracker please visit the
 
 ##Installation
 
-The package is stored in nexus artifactory https://nexus.elastic-print.io/ .
+The package is stored in PyPI .
 To install package execute command:
 
 ```pip install VRT```
