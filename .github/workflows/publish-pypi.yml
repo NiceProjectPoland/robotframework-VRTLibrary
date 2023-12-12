@@ -8,12 +8,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
-      - name: Install Poetry
-        run: curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
-      - name: Add Poetry to path
-        run: echo "${HOME}/.poetry/bin" >> $GITHUB_PATH
-      - name: Install venv
-        run: poetry install
+      - name: Install poetry
+        run: python -m pip install poetry
       - name: Setup TestPyPI repository
         run: |
              poetry config repositories.pypi https://pypi.org/legacy/
