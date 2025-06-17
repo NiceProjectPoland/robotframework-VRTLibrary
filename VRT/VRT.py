@@ -1,6 +1,7 @@
 import base64
 from visual_regression_tracker import VisualRegressionTracker, TestRun
 from robot.api import logger
+from .version import __version__ as VERSION
 
 
 class VRT(object):
@@ -10,6 +11,9 @@ class VRT(object):
     [https://github.com/Visual-Regression-Tracker/Visual-Regression-Tracker |project page].
 
     The library contains 3 keywords which must be used together.
+
+    This library is being developed by [https://niceproject.eu/ |NiceProject Poland].
+    \n [Images/niceproject-logo.svg |NiceProject Logo]
 
     = Configure connection =
 
@@ -39,6 +43,7 @@ class VRT(object):
     """
 
     ROBOT_LIBRARY_SCOPE = "SUITE"
+    ROBOT_LIBRARY_VERSION = VERSION
 
     def start(self):
         """Starts a new build in Visual Regression Tracker."""

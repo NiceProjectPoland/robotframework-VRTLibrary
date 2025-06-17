@@ -10,10 +10,19 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
       - name: Install poetry
-        run: python -m pip install poetry
+        run: python3 -m pip install poetry
       - name: Setup TestPyPI repository
         run: |
              poetry config repositories.testpypi https://test.pypi.org/legacy/
              poetry config pypi-token.testpypi ${{ secrets.TEST_PYPI_TOKEN }}
+      - name: Set test version in pyproject.toml
+        env:
+             GITHUB_REF_NAME: ${{ github.ref_name }}
+        run: |
+             BASE_VERSION=$(poetry version -s)
+             SAFE_NAME=$(echo "${GITHUB_REF_NAME}" | sed 's/[^a-zA-Z0-9.]/_/g' | sed 's/__*/_/g')
+             TEST_VERSION="${BASE_VERSION}+dev_${SAFE_NAME}"
+             echo "Test version: ${TEST_VERSION}"
+             poetry version "${TEST_VERSION}"
       - name: Publish package
         run: poetry publish --build -r testpypi
